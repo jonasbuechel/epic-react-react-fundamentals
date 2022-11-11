@@ -16,7 +16,9 @@
     // to `type="text/babel"` so babel will compile this code for the browser to run.
 
     // 🐨 re-implement this using JSX!
-    const element = <div className="container">Hello World</div>
+    const className = 'container'
+    const children = 'Hello World'
+    const element = <div className={className}>{children}</div>
     /*const element = React.createElement('div', {
       className: 'container',
       children: 'Hello World',
