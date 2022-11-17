@@ -5,21 +5,18 @@ import * as React from 'react'
 import { useRef } from "react";
 
 function UsernameForm({onSubmitUsername}) {
-    const [myInputValue, setMyInputValue] = React.useState('');
+    const [userName, setUserName] = React.useState('');
     const inputRef = useRef(null);
 
   // 🐨 add a submit event handler here (`handleSubmit`).
     function handleSubmit(event) {
         event.preventDefault();
-
-        const username = inputRef.current.value;
-
-        onSubmitUsername(username);
+        onSubmitUsername(userName);
     }
 
     function handleUsernameChange(event) {
         const currentValueLowerCase = event.target.value.toLowerCase();
-        setMyInputValue(currentValueLowerCase);
+        setUserName(currentValueLowerCase);
     }
   // 💰 Make sure to accept the `event` as an argument and call
   // `event.preventDefault()` to prevent the default behavior of form submit
@@ -39,7 +36,7 @@ function UsernameForm({onSubmitUsername}) {
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="username">Username:</label>
-        <input value={myInputValue} type="text" ref={inputRef} id="username" onChange={handleUsernameChange} />
+        <input value={userName} type="text" ref={inputRef} id="username" onChange={handleUsernameChange} />
       </div>
       <button type="submit">Submit</button>
     </form>
